@@ -1,26 +1,22 @@
-'use strict';
-
 // arguments object no longer bound with arrow functions
 
-var add = function add(a, b) {
+const add = (a, b) => {
     // console.log(arguments);
     return a + b;
 };
-console.log(add(55, 1));
+console.log(add(55,1));
 
 // this keyword - no longer bound with arrow functions
 
-var user = {
+const user = {
     name: 'Eric',
     cities: ['San Francisco', 'Boston', 'Chicago'],
-    printPlacesLived: function printPlacesLived() {
-        var _this = this;
-
+    printPlacesLived: function() {
         console.log(this.name);
         console.log(this.cities);
 
-        this.cities.forEach(function (city) {
-            console.log(_this.name + ' has lived in ' + city);
+        this.cities.forEach((city) => {
+            console.log(this.name + ' has lived in ' + city);
         });
     }
 };
