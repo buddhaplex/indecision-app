@@ -23,11 +23,13 @@ const addOne = () => {
 };
 
 const minusOne = () => {
-	console.log('minusOne');
+	count--;
+	renderCounterApp();
 };
 
 const resetButton = () => {
-	console.log('reset');
+	count = 0;
+	renderCounterApp();
 };
 
 const appRoot = document.getElementById('app');

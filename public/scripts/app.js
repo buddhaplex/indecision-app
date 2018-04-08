@@ -37,11 +37,13 @@ var addOne = function addOne() {
 };
 
 var minusOne = function minusOne() {
-	console.log('minusOne');
+	count--;
+	renderCounterApp();
 };
 
 var resetButton = function resetButton() {
-	console.log('reset');
+	count = 0;
+	renderCounterApp();
 };
 
 var appRoot = document.getElementById('app');
