@@ -30,52 +30,5 @@ var template = React.createElement(
 	)
 );
 
-var count = 0;
-var addOne = function addOne() {
-	count++;
-	renderCounterApp();
-};
-
-var minusOne = function minusOne() {
-	count--;
-	renderCounterApp();
-};
-
-var resetButton = function resetButton() {
-	count = 0;
-	renderCounterApp();
-};
-
 var appRoot = document.getElementById('app');
-
-var renderCounterApp = function renderCounterApp() {
-	var templateTwo = React.createElement(
-		'div',
-		null,
-		React.createElement(
-			'h1',
-			null,
-			'Count: ',
-			count
-		),
-		React.createElement(
-			'button',
-			{ onClick: addOne },
-			'+1'
-		),
-		React.createElement(
-			'button',
-			{ onClick: minusOne },
-			'-1'
-		),
-		React.createElement(
-			'button',
-			{ onClick: resetButton },
-			'reset'
-		)
-	);
-
-	ReactDOM.render(templateTwo, appRoot);
-};
-
-renderCounterApp();
+ReactDOM.render(template, appRoot);
