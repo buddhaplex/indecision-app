@@ -16,37 +16,43 @@ const onFormSubmit = (e) => {
 	if (option) {
 		app.options.push(option);
 		e.target.elements.option.value = ' ';
+		renderOptions();
+		}
+	};
+
+	const resetOptions = () => {
+		app.options = [];
+		renderOptions();
 	}
+
+	const appRoot = document.getElementById('app');
+
+	const renderOptions = () => {
+		const template = (
+			<div>
+				<h1>{app.title}</h1>
+				{app.subtitle && <p>{app.subtitle}</p>}
+				<p>{app.options.length > 0 ? 'Here are your options.' : 'You have no options.'}</p>
+				<p>{app.options.length}</p>
+				<button onClick={resetOptions}>Remove All</button>
+				<ol>
+					<li>Item one</li>
+					<li>Item two</li>
+				</ol>
+				<form onSubmit={onFormSubmit}>
+					<input type="text" name="option" />
+					<button>Add Option</button>
+				</form>
+			</div>
+	);
+	ReactDOM.render(template, appRoot);
 };
 
-// renderOptionsLength () => {
-// 	render(app.options.length);
-	
-// }
-
-	const template = (
-		<div>
-			<h1>{app.title}</h1>
-			{app.subtitle && <p>{app.subtitle}</p>}
-			<p>{app.options.length > 0 ? 'Here are your options.' : 'You have no options.'}</p>
-			<p>{app.options.length}</p>
-			<ol>
-				<li>Item one</li>
-				<li>Item two</li>
-			</ol>
-			<form onSubmit={onFormSubmit}>
-				<input type="text" name="option"/>
-				<button>Add Option</button>
-			</form>
-		</div>
+renderOptions();
 
 
-	);
 
 
-const appRoot = document.getElementById('app');
-ReactDOM.render(template, appRoot);
-render()
 
 // create render functin that renders new jsx
 // call to initialize
